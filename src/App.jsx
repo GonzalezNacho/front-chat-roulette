@@ -1,17 +1,34 @@
 import './App.css'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
-import { ControladorContenido } from './components/ControladorContenido'
-import { useState } from 'react'
+import { Bienvenido } from './routes/Bienvenida.jsx'
+import { Contacto } from './routes/Contacto.jsx';
+import { Chat } from './routes/Chat.jsx';
+import ErrorPage from './routes/error-page.jsx';
+import { createBrowserRouter,RouterProvider } from "react-router-dom";
 
 function App() {
 
-  const [contenido, setContenido] = useState('Bienvenida')
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Bienvenido />,
+      errorElement: <ErrorPage />
+    },
+    {
+      path: "contacto",
+      element: <Contacto />
+    },
+    {
+      path: "chat",
+      element: <Chat />
+    }
+  ]);
 
   return (
     <>
-      <Header setContenido={setContenido}/>
-      <ControladorContenido contenido={contenido}/>
+      <Header/>
+      <RouterProvider router={router}/>
       <Footer/>
     </>
   )

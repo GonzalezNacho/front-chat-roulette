@@ -1,13 +1,10 @@
 import { useEffect } from "react"
 
-export function Header ({setContenido}) {
+export function Header () {
 
-    useEffect(() => {
-
-    },[])
     
     const handleClick = (contenido) => {
-        setContenido(contenido)
+        alert(contenido)
     }
 
     return (
@@ -18,9 +15,9 @@ export function Header ({setContenido}) {
                 </div>
                 <nav>
                     <ul className="nav-links">
-                        <li><a onClick={handleClick('Bienvenida')}>Inicio</a></li>
-                        <li><a onClick={handleClick('Chat')}>Chatear</a></li>
-                        <li><a onClick={handleClick('Contacto')}>Contacto</a></li>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/chat">Chatear</a></li>
+                        <li><a href="/contacto">Contacto</a></li>
                     </ul>
                     
                 </nav>
