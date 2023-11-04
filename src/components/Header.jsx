@@ -1,11 +1,10 @@
-import { useEffect } from "react"
+import LogoutButton from "./Logout"
+import LoginButton  from "./Login"
+import { useAuth0 } from "@auth0/auth0-react";
 
 export function Header () {
 
-    
-    const handleClick = (contenido) => {
-        alert(contenido)
-    }
+    const { user, isAuthenticated } = useAuth0();
 
     return (
         <>
@@ -22,8 +21,18 @@ export function Header () {
                     
                 </nav>
                 <div className="botones">
-                    <a href="ingresar.html" className="btn"><button>ingresar</button></a>
-                    <a href="registro.html" className="btn"><button>registrarse</button></a>
+                    {
+                        isAuthenticated ? (
+                            <> 
+                                {/*<img src={user.picture} alt={user.name} />*/}
+                                <h4>{user.name}</h4>
+                                {/*<p>{user.email}</p>*/} 
+                                <LogoutButton/>
+                            </>
+                        ) : (
+                            <LoginButton/>
+                        )
+                    }
                 </div>        
             </header>
         </>
