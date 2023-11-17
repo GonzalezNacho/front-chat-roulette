@@ -1,4 +1,6 @@
 export function Bienvenido() {
+
+
     return (
         <>
             <h1>Bienvenido a Chat random</h1>    

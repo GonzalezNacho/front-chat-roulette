@@ -45,8 +45,7 @@ const socket = io('http://localhost:4001')
 
 export function Chat() {
 
-    const { user } = useAuth0();
-    const [nickname, setNickname] = useState('')
+    const { user, isLoading } = useAuth0();
     const [message, setMessage] = useState('')
     const [messages, setMessages] = useState([])
 
@@ -63,8 +62,6 @@ export function Chat() {
 
         socket.on('message', receivedMessage)
 
-        setNickname(user.name)
-
         return () => {
         socket.off('message', receivedMessage)
         }
@@ -80,25 +77,26 @@ export function Chat() {
 
     console.log(user)
     return (
-        <>
-        <div className='App'>
-            <div className='container mt-3'>
-            <div className='card'>
-                <div className='card-body'>
-                <h2 className='text-center'>chat</h2>
-                <Chatform nickname={nickname} message={message} messages={messages} setMessage={setMessage} setMessages={setMessages} socket={socket} url={url}/>
+            isLoading ? <p>cargando ...</p> :
+            <>
+            <div className='App'>
+                <div className='container mt-3'>
+                <div className='card'>
+                    <div className='card-body'>
+                    <h2 className='text-center'>chat</h2>
+                    <Chatform nickname={user.name} message={message} messages={messages} setMessage={setMessage} setMessages={setMessages} socket={socket} url={url}/>
+                    </div>
+                </div>
+
+                {/* Chat messages */}
+
+                <div className='card mt-3 mb-3' id='content-chat'>
+                        <Messages messages={messages}/>
+                        <small className='text-center text-muted p-3'>... Mensajes guardados ...</small>
+                        <Messages messages={storedMessages} nickname={user.name}/>
+                </div>
                 </div>
             </div>
-
-            {/* Chat messages */}
-
-            <div className='card mt-3 mb-3' id='content-chat'>
-                    <Messages messages={messages}/>
-                    <small className='text-center text-muted p-3'>... Mensajes guardados ...</small>
-                    <Messages messages={storedMessages} nickname={nickname}/>
-            </div>
-            </div>
-        </div>
-        </>
+            </>
     )
 }
