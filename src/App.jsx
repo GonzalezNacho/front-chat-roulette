@@ -6,9 +6,11 @@ import { Contacto } from './routes/Contacto.jsx';
 import { Chat } from './routes/Chat.jsx';
 import ErrorPage from './routes/error-page.jsx';
 import { createBrowserRouter,RouterProvider } from "react-router-dom";
+import { useRef } from 'react';
 
 function App() {
 
+  const isLogin= useRef(false)
   const router = createBrowserRouter([
     {
       path: "/",
@@ -21,13 +23,13 @@ function App() {
     },
     {
       path: "chat",
-      element: <Chat />
+      element: <Chat isLogin={isLogin}/>
     }
   ]);
 
   return (
     <>
-      <Header/>
+      <Header isLogin={isLogin}/>
       <RouterProvider router={router}/>
       <Footer/>
     </>

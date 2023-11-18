@@ -58,6 +58,16 @@ header .nav-links li:hover {
   text-decoration: none;
 }
 
+.header .botones {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.header .botones h4 {
+  padding: 10px 0;
+}
+
 .header .botones .btn button {
   font-weight: 700;
   color: rgb(38, 108, 170);

@@ -2,9 +2,13 @@ import LogoutButton from "./Logout"
 import LoginButton  from "./Login"
 import { useAuth0 } from "@auth0/auth0-react";
 
-export function Header () {
+export function Header ({isLogin}) {
 
     const { user, isAuthenticated } = useAuth0();
+
+    if(isAuthenticated) {
+        isLogin.current = true
+    }
 
     return (
         <>
@@ -24,10 +28,8 @@ export function Header () {
                     {
                         isAuthenticated ? (
                             <> 
-                                {/*<img src={user.picture} alt={user.name} />*/}
-                                <h4>{user.name}</h4>
-                                {/*<p>{user.email}</p>*/} 
-                                <LogoutButton/>
+                                <h4>{user.name}</h4> 
+                                <LogoutButton isLogin={isLogin}/>
                             </>
                         ) : (
                             <LoginButton/>
