@@ -1,5 +1,5 @@
 import { io } from 'socket.io-client';
-import { useMessages } from '../hooks/useMessages';
+import { useMessages } from '../hooks/useMessages'
 import { Chatform } from '../components/Chatform'
 import { Messages } from '../components/Messages'
 import { useAuth0 } from "@auth0/auth0-react";
@@ -11,7 +11,7 @@ const socket = io('http://localhost:4001')
 export function Chat({isLogin}) {
 
     const { user } = useAuth0();
-    const { messages, storedMessages } = useMessages({socket})
+    const { message, messages, storedMessages, setMessage, setMessages, url } = useMessages({socket})
     
 
     return (
@@ -21,7 +21,7 @@ export function Chat({isLogin}) {
                         <div className='card'>
                             <div className='card-body'>
                                 <h2 className='text-center'>chat</h2>
-                                <Chatform nickname={user.name} socket={socket}/>
+                                <Chatform nickname={user.name} socket={socket} message={message} messages={messages} setMessage={setMessage} setMessages={setMessages} url={url}/>
                             </div>
                         </div>
 

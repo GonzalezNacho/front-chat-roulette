@@ -1,9 +1,8 @@
 import axios from 'axios'
-import { useMessages } from '../hooks/useMessages'
 
-export function Chatform ({nickname, socket}) {
 
-    const {message, messages, setMessage, setMessages, url } = useMessages(socket)
+export function Chatform ({nickname, socket, message, messages, setMessage, setMessages, url }) {
+
     const handlerSubmit = e => {
             e.preventDefault()
         
@@ -23,7 +22,6 @@ export function Chatform ({nickname, socket}) {
                 messages: message,
                 from: nickname
             })
-            alert('se envio un mensaje')
         }
 
     return (
