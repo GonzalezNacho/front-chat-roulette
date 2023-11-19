@@ -1,7 +1,8 @@
 import axios from 'axios'
+import {PropTypes} from 'prop-types'
 
 
-export function Chatform ({nickname, socket, message, messages, setMessage, setMessages, url }) {
+export function Chatform ({nickname, socket, message, messages, setMessage, setMessages, url }) { 
 
     const handlerSubmit = e => {
             e.preventDefault()
@@ -32,4 +33,14 @@ export function Chatform ({nickname, socket, message, messages, setMessage, setM
             </div>
         </form>
     )
+}
+
+Chatform.propTypes = {
+    nickname: PropTypes.string.isRequired,
+    socket: PropTypes.object.isRequired,
+    message: PropTypes.string.isRequired,
+    messages: PropTypes.array.isRequired,
+    setMessage: PropTypes.func.isRequired,
+    setMessages: PropTypes.func.isRequired,
+    url: PropTypes.string.isRequired
 }

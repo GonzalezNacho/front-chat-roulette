@@ -6,16 +6,16 @@ export function Contacto () {
                 <div className="container">
                     <form>
                     <div className="form-group">
-                        <label for="nombre">Nombre:</label>
+                        <label htmlFor="nombre">Nombre:</label>
                         <input type="text" id="nombre" name="nombre" required/>
                     </div>
 
                     <div className="form-group">
-                        <label for="email">Correo Electrónico:</label>
+                        <label htmlFor="email">Correo Electrónico:</label>
                         <input type="email" id="email" name="email" required/>
                     </div>
-                    <div class="form-group">
-                        <label for="comentarios">Comentarios:</label>
+                    <div className="form-group">
+                        <label htmlFor="comentarios">Comentarios:</label>
                         <textarea id="comentarios" name="comentarios" required></textarea>
                     </div>
                     

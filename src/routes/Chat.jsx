@@ -3,6 +3,7 @@ import { useMessages } from '../hooks/useMessages'
 import { Chatform } from '../components/Chatform'
 import { Messages } from '../components/Messages'
 import { useAuth0 } from "@auth0/auth0-react";
+import { PropTypes } from 'prop-types'
 
 
 //Conexion para escuchar y enviar los eventos
@@ -37,4 +38,8 @@ export function Chat({isLogin}) {
             :
             <h3>Esperando la autenticacion</h3>
     )
+}
+
+Chat.propTypes = {
+    isLogin: PropTypes.bool.isRequired
 }
