@@ -4,10 +4,11 @@ import { Chatform } from '../components/Chatform'
 import { Messages } from '../components/Messages'
 import { useAuth0 } from "@auth0/auth0-react";
 import { PropTypes } from 'prop-types'
+import {ip, port} from '../assets/js/const'
 
 
 //Conexion para escuchar y enviar los eventos
-const socket = io('http://localhost:4001')
+const socket = io(`${ip}:${port}`)
 
 export function Chat({isLogin}) {
 
@@ -41,5 +42,5 @@ export function Chat({isLogin}) {
 }
 
 Chat.propTypes = {
-    isLogin: PropTypes.bool.isRequired
+    isLogin: PropTypes.object.isRequired
 }

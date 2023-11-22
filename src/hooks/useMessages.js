@@ -1,9 +1,10 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import {ip, port} from '../assets/js/const'
 
 export function useMessages( {socket} ) {
     
-    const url = 'http://localhost:4001/api/'
+    const url = `${ip}:${port}/api/`
     const [message, setMessage] = useState('')
     const [messages, setMessages] = useState([])
 
