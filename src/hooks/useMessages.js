@@ -10,23 +10,23 @@ export function useMessages( {socket} ) {
 
     const [storedMessages, setStoredMessages] = useState([])
     const [firstTime, setFirstTime] = useState(false)
- 
+
     useEffect(()=> {
         const receivedMessage = (message) => {
-        setMessages([message, ...messages])
+            setMessages([message, ...messages])
         }
 
         socket.on('message', receivedMessage)
 
         return () => {
-        socket.off('message', receivedMessage)
+            socket.off('message', receivedMessage)
         }
     }, [messages])
 
     if(!firstTime) {
         axios.get(url +'messages').then(res => {
-        let messagesDb = res.data.messages
-        setStoredMessages(messagesDb)
+            let messagesDb = res.data.messages
+            setStoredMessages(messagesDb)
         })
         setFirstTime(true)
     }

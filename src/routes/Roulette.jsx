@@ -1,22 +1,22 @@
-export function Roulette() {
+export function Roulette({socket}) {
 
-    const handleClickUnirse = () => {
-        alert('unirse')
+    const handlerClickUnirse = () => {
+        socket.emit('join room')
     }
     
-    const handleClickCrear = () => {
-        alert('crear sala')
+    const handlerClickCrear = () => {
+        socket.emit('create room')
     }
 
     return (
         <>
             <h1>Elige una opicion</h1>    
             <section className="conteiners-divs">
-                <div id="crear-sala" onClick={handleClickCrear}>
+                <div id="crear-sala" onClick={handlerClickCrear}>
                     <h1>Crer Sala</h1>
                     <p>Seras el unico participante hasta que ingrese otro usuario</p>
                 </div>
-                <div id="unirse" onClick={handleClickUnirse}>
+                <div id="unirse" onClick={handlerClickUnirse}>
                     <h1>Unirse</h1>
                     <p>Unirse a una sala ya existente</p>
                 </div>

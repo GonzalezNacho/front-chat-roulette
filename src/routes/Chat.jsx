@@ -4,7 +4,7 @@ import { Chatform } from '../components/Chatform'
 import { Messages } from '../components/Messages'
 import { useAuth0 } from "@auth0/auth0-react";
 import { PropTypes } from 'prop-types'
-import {ip, port} from '../assets/js/const'
+import { ip, port } from '../assets/js/const'
 
 
 //Conexion para escuchar y enviar los eventos
