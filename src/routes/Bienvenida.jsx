@@ -3,7 +3,7 @@ export function Bienvenido() {
     return (
         <>
             <h1>Bienvenido a Chat random</h1>    
-            <section className="sugerencias">
+            <section className="conteiners-divs">
                 <div>
                     <h1>Chat random</h1>
                     <p>Chat Ramdon es una excelente manera de conocer nuevos amigos.Cuando usa chat Ramdon se le empareja con otra persona para hablar uno a uno.Si lo prefiere , puede agregar sus intereses y sera emparejado al azar con alguien que selecciono algunos de sus mismos intereses</p>

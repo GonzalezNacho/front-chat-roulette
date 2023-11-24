@@ -4,6 +4,7 @@ import { Footer } from './components/Footer'
 import { Bienvenido } from './routes/Bienvenida.jsx'
 import { Contacto } from './routes/Contacto.jsx';
 import { Chat } from './routes/Chat.jsx';
+import { Roulette } from './routes/Roulette.jsx'
 import ErrorPage from './routes/error-page.jsx';
 import { createBrowserRouter,RouterProvider } from "react-router-dom";
 import { useRef } from 'react';
@@ -24,6 +25,10 @@ function App() {
     {
       path: "chat",
       element: <Chat isLogin={isLogin}/>
+    },
+    {
+      path: "ruleta",
+      element: <Roulette/>
     }
   ]);
 
