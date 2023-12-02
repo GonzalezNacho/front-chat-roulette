@@ -13,7 +13,7 @@ export function Roulette({socket}) {
             <h1>Elige una opicion</h1>    
             <section className="conteiners-divs">
                 <div id="crear-sala" onClick={handlerClickCrear}>
-                    <h1>Crer Sala</h1>
+                    <h1>Crear Sala</h1>
                     <p>Seras el unico participante hasta que ingrese otro usuario</p>
                 </div>
                 <div id="unirse" onClick={handlerClickUnirse}>

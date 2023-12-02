@@ -8,6 +8,7 @@ import { Roulette } from './routes/Roulette.jsx'
 import ErrorPage from './routes/error-page.jsx';
 import { createBrowserRouter,RouterProvider } from "react-router-dom";
 import { useRef } from 'react';
+import Login from './components/LoginForm.jsx';
 
 function App() {
 
@@ -29,6 +30,10 @@ function App() {
     {
       path: "ruleta",
       element: <Roulette/>
+    },
+    {
+      path: "login",
+      element: <Login/>
     }
   ]);
 
